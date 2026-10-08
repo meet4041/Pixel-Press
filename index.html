@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Compress images locally in your browser." />
+    <title>PixelPress &mdash; Local image compressor</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="polish.css" />
+    <link rel="stylesheet" href="compact.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="PixelPress home"><span class="brand-mark">P</span><span>PixelPress</span></a>
+      <nav aria-label="Primary navigation"><a href="#how-it-works">How it works</a><a href="#privacy">Privacy</a></nav>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <p class="eyebrow"><span></span> 100% private image compression</p>
+        <h1>Make images lighter.<br /><em>Keep them sharp.</em></h1>
+        <p class="hero-copy">Compress JPEG, PNG, and WebP images right in your browser. No uploads, no waiting, no compromise.</p>
+        <div class="trust-row" aria-label="Product benefits"><span>Runs in your browser</span><span>No account needed</span><span>Up to 25 MB per file</span></div>
+      </section>
+
+      <section class="workspace" aria-labelledby="workspace-title">
+        <div id="dropzone" class="dropzone" role="button" tabindex="0" aria-describedby="upload-help" aria-label="Upload images">
+          <input id="file-input" type="file" accept="image/jpeg,image/png,image/webp,.jpg,.jpeg,.png,.webp" multiple />
+          <div class="upload-icon" aria-hidden="true">&uarr;</div>
+          <h2 id="workspace-title">Drop images here</h2>
+          <p>or <span>browse files</span> from your device</p>
+          <small id="upload-help">JPEG, PNG or WebP &middot; up to 25 MB per file</small>
+        </div>
+        <div id="message" class="message" aria-live="polite"></div>
+
+        <div id="app-panel" class="app-panel" hidden>
+          <div class="panel-topline">
+            <div><p class="section-kicker">Your images</p><h2 id="image-count">0 images ready</h2></div>
+            <button id="add-more" class="text-button" type="button">+ Add images</button>
+          </div>
+          <div id="image-list" class="image-list" aria-live="polite"></div>
+
+          <div class="settings-card">
+            <div class="settings-title"><div class="settings-icon" aria-hidden="true">&#9881;</div><div><h2>Compression settings</h2><p>Choose how your compressed files should look.</p></div></div>
+            <div class="setting-grid">
+              <label class="field"><span>Output format</span><select id="format-select" aria-label="Output format"><option value="image/webp" selected>WebP (recommended)</option><option value="original">Same as original</option><option value="image/jpeg">JPEG</option><option value="image/png">PNG</option></select></label>
+              <label class="field quality-field"><span>Quality <strong id="quality-output">80</strong></span><input id="quality-range" type="range" min="10" max="100" value="80" /><small>Higher quality means a larger file.</small></label>
+            </div>
+            <p id="transparency-note" class="transparency-note" hidden>Transparent areas will become white when JPEG is selected.</p>
+          </div>
+          <div class="action-row"><p id="process-status" aria-live="polite">Ready when you are.</p><button id="compress-button" class="primary-button" type="button">Compress images <span>&rarr;</span></button></div>
+          <section id="results" class="results" hidden aria-labelledby="results-title"><div><p class="section-kicker">Results</p><h2 id="results-title">Smaller files, ready to use</h2><p id="summary-copy"></p></div><button id="zip-button" class="secondary-button" type="button" hidden>Download all as ZIP</button></section>
+        </div>
+      </section>
+
+      <section id="how-it-works" class="info-section"><div class="section-intro"><p class="section-kicker">Simple by design</p><h2>From heavy to handy<br />in three steps.</h2></div><ol class="steps"><li><span>01</span><h3>Upload</h3><p>Choose one image or a whole batch. Everything stays on your device.</p></li><li><span>02</span><h3>Adjust</h3><p>Pick the format and quality that works best for your images.</p></li><li><span>03</span><h3>Download</h3><p>Save individual images or grab every result in one ZIP file.</p></li></ol></section>
+      <section id="privacy" class="privacy"><div class="privacy-lock" aria-hidden="true">&#128274;</div><div><p class="section-kicker">Privacy, by default</p><h2>Your files never leave your device.</h2><p>Compression happens locally in your browser. We don't upload, inspect, or store your images &mdash; ever.</p></div></section>
+    </main>
+    <footer><a class="brand" href="#top"><span class="brand-mark">P</span><span>PixelPress</span></a><p>Private compression, powered by your browser.</p><p>&copy; <span id="year"></span> PixelPress</p></footer>
+    <script src="app.js"></script>
+  </body>
+</html>
